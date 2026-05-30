@@ -105,6 +105,7 @@ function Index() {
                   </span>
                   <span className="mono text-xs text-bone/50">{p.year}</span>
                 </div>
+
                 <h3 className="display mt-8 text-5xl text-bone transition-colors group-hover:text-acid">
                   {p.title}
                 </h3>

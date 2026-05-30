@@ -56,7 +56,7 @@ export function WorkPage() {
             key={w.n}
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5, delay: i * 0.06 }}
             className="group relative grid grid-cols-[auto_1fr_auto] items-baseline gap-6 border-b border-bone/20 py-8 transition-colors hover:bg-ink/60 md:gap-12 md:py-12"
           >
