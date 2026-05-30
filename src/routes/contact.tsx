@@ -31,10 +31,10 @@ function ContactPage() {
     };
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, access_key: "d5133456-47ed-49a2-8484-388c14d32d3c" }),
       });
       const result = await res.json();
       if (res.ok) {
