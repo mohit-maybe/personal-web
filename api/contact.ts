@@ -1,16 +1,17 @@
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export default async function handler(req: Request) {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {
-    return new Response("Method not allowed", { status: 405 });
+    return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { name, email, subject, message } = await req.json();
+  const { name, email, subject, message } = req.body;
 
   if (!process.env.RESEND_API_KEY) {
-    return new Response(JSON.stringify({ error: "Email service not configured" }), { status: 500 });
+    return res.status(500).json({ error: "Email service not configured" });
   }
 
   try {
@@ -21,8 +22,9 @@ export default async function handler(req: Request) {
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
     });
 
-    return new Response(JSON.stringify({ success: true }), { status: 200 });
+    return res.status(200).json({ success: true });
   } catch (error) {
-    return new Response(JSON.stringify({ error: "Failed to send email" }), { status: 500 });
+    console.error(error);
+    return res.status(500).json({ error: "Failed to send email" });
   }
 }
