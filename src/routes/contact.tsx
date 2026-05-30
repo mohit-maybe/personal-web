@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { PageTransition } from "@/components/PageTransition";
-import { sendContactEmail } from "@/lib/contact-actions";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/contact")({
@@ -32,8 +31,13 @@ function ContactPage() {
     };
 
     try {
-      const result = await sendContactEmail({ data });
-      if (result.success) {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json();
+      if (res.ok) {
         setSent(true);
         toast.success("Signal transmitted successfully. Check your email.");
       } else {
@@ -100,7 +104,7 @@ function ContactPage() {
         >
           <div className="brutal-border p-6">
             <p className="mono text-xs uppercase tracking-widest text-blood">// Direct</p>
-            <a
+            
               href="mailto:mohitpreets67@gmail.com"
               className="display mt-3 block break-all text-3xl text-bone hover:text-acid"
             >
@@ -117,7 +121,7 @@ function ContactPage() {
                 </a>
               </li>
               <li>
-                <a
+                
                   href="https://calendly.com/mohitpreets67/discussion-meeting"
                   target="_blank"
                   rel="noreferrer"
@@ -158,4 +162,3 @@ function Field({ label, name, type = "text", disabled = false }: { label: string
     </div>
   );
 }
-
