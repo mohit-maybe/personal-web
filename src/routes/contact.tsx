@@ -104,7 +104,7 @@ function ContactPage() {
         >
           <div className="brutal-border p-6">
             <p className="mono text-xs uppercase tracking-widest text-blood">// Direct</p>
-            
+              <a
               href="mailto:mohitpreets67@gmail.com"
               className="display mt-3 block break-all text-3xl text-bone hover:text-acid"
             >
