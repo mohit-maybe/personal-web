@@ -98,29 +98,15 @@ function Index() {
               transition={{ duration: 0.6, delay: i * 0.08 }}
               className="brutal-border group relative cursor-pointer overflow-hidden bg-ink p-6"
             >
-              <a href={p.href} target="_blank" rel="noreferrer" className="block">
-                <div className="flex items-start justify-between">
-                  <span className="mono text-xs uppercase tracking-widest text-blood">
-                    №{String(i + 1).padStart(2, "0")} / {p.kind}
-                  </span>
-                  <span className="mono text-xs text-bone/50">{p.year}</span>
-                </div>
-
-                <h3 className="display mt-8 text-5xl text-bone transition-colors group-hover:text-acid">
-                  {p.title}
-                </h3>
-                <p className="mt-4 max-w-md text-sm text-bone/70">{p.blurb}</p>
-                <div className="mt-8 flex items-center justify-between">
-                  <div className="flex gap-2">
-                    {p.tags.map((t) => (
-                      <span key={t} className="mono text-[10px] uppercase tracking-widest text-bone/60">
-                        · {t}
-                      </span>
-                    ))}
-                  </div>
-                  <span className="display text-3xl text-acid transition-transform group-hover:translate-x-2">→</span>
-                </div>
-              </a>
+              {p.internal ? (
+                <Link to={p.internal} className="block">
+                  <PreviewContent p={p} i={i} />
+                </Link>
+              ) : (
+                <a href={p.href} target="_blank" rel="noreferrer" className="block">
+                  <PreviewContent p={p} i={i} />
+                </a>
+              )}
             </motion.article>
           ))}
         </div>
@@ -140,6 +126,34 @@ function Index() {
   );
 }
 
+function PreviewContent({ p, i }: { p: typeof previews[number]; i: number }) {
+  return (
+    <>
+      <div className="flex items-start justify-between">
+        <span className="mono text-xs uppercase tracking-widest text-blood">
+          №{String(i + 1).padStart(2, "0")} / {p.kind}
+        </span>
+        <span className="mono text-xs text-bone/50">{p.year}</span>
+      </div>
+
+      <h3 className="display mt-8 text-5xl text-bone transition-colors group-hover:text-acid">
+        {p.title}
+      </h3>
+      <p className="mt-4 max-w-md text-sm text-bone/70">{p.blurb}</p>
+      <div className="mt-8 flex items-center justify-between">
+        <div className="flex gap-2">
+          {p.tags.map((t) => (
+            <span key={t} className="mono text-[10px] uppercase tracking-widest text-bone/60">
+              · {t}
+            </span>
+          ))}
+        </div>
+        <span className="display text-3xl text-acid transition-transform group-hover:translate-x-2">→</span>
+      </div>
+    </>
+  );
+}
+
 const previews = [
   {
     title: "Student OS",
@@ -148,5 +162,14 @@ const previews = [
     blurb: "A specialized platform for schools to simplify day-to-day operations through automation — QR attendance, auto report cards, and multi-role systems.",
     tags: ["SaaS", "Automation", "Education"],
     href: "https://student-os.onrender.com",
+  },
+  {
+    title: "Axion AI",
+    kind: "Automation · AI",
+    year: "2026",
+    blurb: "A fully automated B2B lead generation agency platform — capturing, enriching, and converting high-intent prospects at scale with zero manual intervention.",
+    tags: ["Automation", "AI", "Lead Gen"],
+    href: "https://axion-ai-1.lovable.app",
+    internal: "/projects/axion-ai",
   },
 ];
