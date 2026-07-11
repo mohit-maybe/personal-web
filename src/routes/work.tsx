@@ -21,6 +21,7 @@ type Work = {
   tags: string[];
   href?: string;
   repo?: string;
+  internal?: string;
 };
 
 const works: Work[] = [
@@ -34,6 +35,17 @@ const works: Work[] = [
     tags: ["SaaS", "Full-stack", "Education"],
     href: "https://student-os.onrender.com",
     repo: "https://github.com/mohit-maybe",
+  },
+  {
+    n: "02",
+    title: "Axion AI",
+    kind: "Automation · Lead Gen",
+    year: "2026",
+    blurb:
+      "A fully automated B2B lead generation agency platform engineered to capture, enrich, and convert high-intent prospects autonomously. Built to scale outbound infrastructure from 0 to 10,000+ personalized touchpoints monthly.",
+    tags: ["Automation", "AI", "B2B"],
+    href: "https://axion-ai-1.lovable.app",
+    internal: "/projects/axion-ai",
   },
 ];
 
@@ -94,6 +106,14 @@ export function WorkPage() {
                     GitHub ↗
                   </a>
                 )}
+                {w.internal && (
+                  <Link
+                    to={w.internal}
+                    className="brutal-border mono px-3 py-1.5 text-[11px] uppercase tracking-widest text-bone hover:bg-acid hover:text-void"
+                  >
+                    Case study →
+                  </Link>
+                )}
               </div>
             </div>
             <div className="mono text-right text-xs uppercase tracking-widest text-bone/60">
@@ -105,7 +125,7 @@ export function WorkPage() {
         ))}
 
         <li className="grid grid-cols-[auto_1fr_auto] items-baseline gap-6 border-b border-dashed border-bone/20 py-12 md:gap-12">
-          <span className="display text-3xl text-bone/30 md:text-5xl">02</span>
+          <span className="display text-3xl text-bone/30 md:text-5xl">03</span>
           <div>
             <h2 className="display text-4xl text-bone/40 md:text-7xl">[ Forthcoming ]</h2>
             <p className="mt-2 max-w-xl text-sm text-bone/50">
