@@ -47,6 +47,20 @@ const works: Work[] = [
     href: "https://axion-ai-1.lovable.app",
     internal: "/projects/axion-ai",
   },
+<<<<<<< HEAD
+  {
+    n: "03",
+    title: "Yatra Notes",
+    kind: "Web Design · Vanilla Front-end",
+    year: "2026",
+    blurb:
+      "A hand-built travel guide to India's hidden gems and iconic destinations — eight curated cards, an accessible region filter, and a validated contact form, all written in dependency-free HTML, CSS, and JavaScript.",
+    tags: ["Web Design", "Accessibility", "Vanilla JS"],
+    href: "/yatra-notes.html",
+    internal: "/projects/yatra-notes",
+  },
+=======
+>>>>>>> 71d5a64a2f3600aa8d9e874319f11df87581bc7e
 ];
 
 export function WorkPage() {
@@ -125,7 +139,11 @@ export function WorkPage() {
         ))}
 
         <li className="grid grid-cols-[auto_1fr_auto] items-baseline gap-6 border-b border-dashed border-bone/20 py-12 md:gap-12">
+<<<<<<< HEAD
+          <span className="display text-3xl text-bone/30 md:text-5xl">04</span>
+=======
           <span className="display text-3xl text-bone/30 md:text-5xl">03</span>
+>>>>>>> 71d5a64a2f3600aa8d9e874319f11df87581bc7e
           <div>
             <h2 className="display text-4xl text-bone/40 md:text-7xl">[ Forthcoming ]</h2>
             <p className="mt-2 max-w-xl text-sm text-bone/50">
