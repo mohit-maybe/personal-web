@@ -98,7 +98,7 @@ export function WorkPage() {
               </div>
               <div className="mt-5 flex flex-wrap gap-3">
                 {w.href && (
-                  
+                  <a
                     href={w.href}
                     target="_blank"
                     rel="noreferrer"
@@ -108,7 +108,7 @@ export function WorkPage() {
                   </a>
                 )}
                 {w.repo && (
-                  
+                  <a
                     href={w.repo}
                     target="_blank"
                     rel="noreferrer"
