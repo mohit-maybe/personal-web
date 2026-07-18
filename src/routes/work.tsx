@@ -67,6 +67,7 @@ const works: Work[] = [
       "A production-grade framework for evaluating LLM summarization with statistical rigor — Welch's t-tests, Cohen's d, and 95% confidence intervals feeding a 5-tab Streamlit dashboard, plus cost-per-quality analysis to defend which model actually ships.",
     tags: ["Python", "Statistics", "LLM-as-Judge", "Streamlit"],
     repo: "https://github.com/mohit-maybe/product-evaluation-harness",
+    internal: "/projects/product-evaluation-harness",
   },
 ];
 
