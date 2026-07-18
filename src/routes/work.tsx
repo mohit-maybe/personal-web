@@ -58,6 +58,16 @@ const works: Work[] = [
     href: "/yatra-notes.html",
     internal: "/projects/yatra-notes",
   },
+  {
+    n: "04",
+    title: "Product Evaluation Harness",
+    kind: "Product Analytics · LLM Eval",
+    year: "2026",
+    blurb:
+      "A production-grade framework for evaluating LLM summarization with statistical rigor — Welch's t-tests, Cohen's d, and 95% confidence intervals feeding a 5-tab Streamlit dashboard, plus cost-per-quality analysis to defend which model actually ships.",
+    tags: ["Python", "Statistics", "LLM-as-Judge", "Streamlit"],
+    repo: "https://github.com/mohit-maybe/product-evaluation-harness",
+  },
 ];
 
 export function WorkPage() {
@@ -136,7 +146,7 @@ export function WorkPage() {
         ))}
 
         <li className="grid grid-cols-[auto_1fr_auto] items-baseline gap-6 border-b border-dashed border-bone/20 py-12 md:gap-12">
-          <span className="display text-3xl text-bone/30 md:text-5xl">04</span>
+          <span className="display text-3xl text-bone/30 md:text-5xl">05</span>
           <div>
             <h2 className="display text-4xl text-bone/40 md:text-7xl">[ Forthcoming ]</h2>
             <p className="mt-2 max-w-xl text-sm text-bone/50">
