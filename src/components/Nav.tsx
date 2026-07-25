@@ -53,7 +53,7 @@ export function Nav() {
           href="mailto:mohitpreets67@gmail.com"
           className="tape-blood mono hidden text-[10px] uppercase tracking-widest md:inline-block"
         >
-          Available · 2026
+          Open · SEO + AI · 2026
         </a>
       </div>
 
