@@ -58,7 +58,7 @@ function ContactPage() {
           SEND A <span className="text-acid">SIGNAL.</span>
         </h1>
         <p className="mono mt-4 max-w-xl text-sm text-bone/70">
-          Commissions, collaborations, the occasional rant about typography — all welcome.
+          SEO audits, AI automation builds, commissions, collaborations — all welcome.
         </p>
       </header>
 
@@ -102,6 +102,16 @@ function ContactPage() {
           transition={{ duration: 0.6, delay: 0.15 }}
           className="space-y-6"
         >
+          <div className="brutal-border p-6">
+            <p className="mono text-xs uppercase tracking-widest text-blood">// New Here?</p>
+            <p className="mt-3 text-sm leading-relaxed text-bone/80">
+              If your site isn't showing up on Google, or your lead follow-up is
+              still manual — tell me what's slow about your business and I'll
+              tell you straight whether an SEO fix or an automation build is
+              worth your money.
+            </p>
+          </div>
+
           <div className="brutal-border p-6">
             <p className="mono text-xs uppercase tracking-widest text-blood">// Direct</p>
               <a

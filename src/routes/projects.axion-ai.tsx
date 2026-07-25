@@ -12,6 +12,8 @@ import {
   Layers,
   Cpu,
   Radio,
+  TrendingUp,
+  ListChecks,
 } from "lucide-react";
 
 export const Route = createFileRoute("/projects/axion-ai")({
@@ -21,7 +23,7 @@ export const Route = createFileRoute("/projects/axion-ai")({
       {
         name: "description",
         content:
-          "Axion AI — A fully automated B2B lead generation agency platform engineered to capture, enrich, and convert high-intent prospects autonomously.",
+          "Axion AI case study — how a fully automated B2B lead generation pipeline was built, what it proves, and how the same automation is available for client projects.",
       },
     ],
   }),
@@ -56,6 +58,47 @@ const stack = [
   { label: "Frontend", items: ["React", "Vite", "Tailwind CSS"] },
   { label: "Platform", items: ["Lovable", "Netlify"] },
   { label: "Automation", items: ["Webhook Pipelines", "Async Data Agents"] },
+];
+
+const proof = [
+  {
+    stat: "0 → 10K+",
+    label: "Monthly touchpoints",
+    desc: "Outbound infrastructure engineered to run at that volume with zero manual input per lead.",
+  },
+  {
+    stat: "5",
+    label: "Pipeline stages automated",
+    desc: "Capture, enrichment, scoring, outreach, and CRM sync — no human hand-off between any step.",
+  },
+  {
+    stat: "99%",
+    label: "Target data deliverability",
+    desc: "The enrichment layer is built to keep emails and contact records verified and usable, not stale.",
+  },
+];
+
+const process = [
+  {
+    phase: "01",
+    title: "Map the manual process",
+    desc: "Started by documenting how a B2B agency actually sources and qualifies leads today — every spreadsheet, every copy-paste, every follow-up that gets dropped.",
+  },
+  {
+    phase: "02",
+    title: "Design the automation layer",
+    desc: "Replaced each manual step with a triggered pipeline — webhook-based capture, an enrichment agent, and an intent-scoring model — wired together with n8n/Make-style architecture.",
+  },
+  {
+    phase: "03",
+    title: "Build the interface",
+    desc: "Layered a dark-mode, conversion-focused UI on top so the system is something a founder can actually watch run and trust — not a black-box script.",
+  },
+  {
+    phase: "04",
+    title: "Ship & stress-test",
+    desc: "Deployed to Lovable/Netlify and load-tested the pipeline against a simulated 10,000+ touchpoint month before calling it done.",
+  },
 ];
 
 /* ─── component ─── */
@@ -186,6 +229,46 @@ function AxionAIPage() {
         </motion.div>
       </section>
 
+      {/* ═══════════ PROOF / RESULTS ═══════════ */}
+      <section className="mt-24">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <p className="mono text-xs uppercase tracking-[0.3em] text-blood">
+            ※ Proof Of Work
+          </p>
+          <h2 className="display mt-4 text-5xl text-bone md:text-7xl">
+            What It <span className="text-acid">Proves</span>
+          </h2>
+          <p className="mono mt-4 max-w-2xl text-sm leading-relaxed text-bone/70">
+            Axion AI is a self-initiated build, not a client engagement — designed
+            to prove out the exact automation stack I bring to client SEO and
+            lead-gen work. These are the build targets it was engineered to hit.
+          </p>
+        </motion.div>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {proof.map((p, i) => (
+            <motion.div
+              key={p.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="brutal-border bg-ink p-6"
+            >
+              <TrendingUp className="h-4 w-4 text-acid" />
+              <p className="display mt-4 text-4xl text-acid md:text-5xl">{p.stat}</p>
+              <p className="heading mt-2 text-sm text-bone">{p.label}</p>
+              <p className="mt-3 text-sm leading-relaxed text-bone/70">{p.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* ═══════════ KEY FEATURES ═══════════ */}
       <section className="mt-24">
         <motion.div
@@ -229,6 +312,42 @@ function AxionAIPage() {
             </motion.div>
           ))}
         </div>
+      </section>
+
+      {/* ═══════════ BUILD PROCESS ═══════════ */}
+      <section className="mt-24">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <p className="mono text-xs uppercase tracking-[0.3em] text-blood">
+            ※ How It Got Built
+          </p>
+          <h2 className="display mt-4 text-5xl text-bone md:text-7xl">
+            The <span className="text-acid">Process</span>
+          </h2>
+        </motion.div>
+
+        <ol className="mt-10 space-y-6">
+          {process.map((s, i) => (
+            <motion.li
+              key={s.phase}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="grid grid-cols-[auto_1fr] items-baseline gap-6 border-b border-bone/20 pb-6"
+            >
+              <span className="display text-4xl text-acid md:text-5xl">{s.phase}</span>
+              <div>
+                <p className="heading text-base text-bone md:text-lg">{s.title}</p>
+                <p className="mt-2 text-sm leading-relaxed text-bone/70">{s.desc}</p>
+              </div>
+            </motion.li>
+          ))}
+        </ol>
       </section>
 
       {/* ═══════════ TECH STACK ═══════════ */}
@@ -327,6 +446,31 @@ function AxionAIPage() {
         </motion.div>
       </section>
 
+      {/* ═══════════ FOR FOUNDERS ═══════════ */}
+      <section className="mt-24">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="brutal-border bg-ink p-6 md:p-8"
+        >
+          <div className="flex items-center gap-3 border-b border-bone/15 pb-4">
+            <ListChecks className="h-5 w-5 text-acid" />
+            <p className="mono text-xs uppercase tracking-widest text-blood">
+              // In Plain English
+            </p>
+          </div>
+          <p className="mt-6 max-w-2xl text-sm leading-relaxed text-bone/80 md:text-base">
+            If your business still finds leads by hand — scrolling LinkedIn,
+            copy-pasting emails, chasing follow-ups in a notebook — this is the
+            kind of system that takes that off your plate. I build the same
+            capture → enrich → outreach pipeline shown above for small businesses,
+            sized to what you actually need.
+          </p>
+        </motion.div>
+      </section>
+
       {/* ═══════════ CTA ═══════════ */}
       <section className="mt-24 text-center">
         <motion.div
@@ -356,10 +500,17 @@ function AxionAIPage() {
               to="/contact"
               className="brutal-shadow-blood inline-flex items-center gap-3 bg-blood px-8 py-5 text-bone transition-transform hover:-translate-x-1 hover:-translate-y-1"
             >
-              <span className="heading text-base">Start a Project</span>
+              <span className="heading text-base">Get an Automation Like This</span>
               <ArrowRight className="h-5 w-5" />
             </Link>
           </div>
+          <p className="mono mt-4 text-xs text-bone/50">
+            Or skip the buttons —{" "}
+            <a href="mailto:mohitpreets67@gmail.com" className="text-acid hover:underline">
+              email me directly
+            </a>
+            .
+          </p>
         </motion.div>
       </section>
     </PageTransition>

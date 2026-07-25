@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { PageTransition } from "@/components/PageTransition";
 
@@ -83,6 +83,13 @@ function AboutPage() {
             When I'm not in a browser, I'm collecting print ephemera, listening to
             doom-metal soundtracks, and sketching layouts on the backs of receipts.
           </p>
+          <p>
+            Right now I'm taking on <span className="tape mono text-base">SEO audit</span> and{" "}
+            <span className="tape-blood mono text-base">AI automation</span> projects for small
+            businesses — the kind of work where I can point at{" "}
+            <Link to="/projects/axion-ai" className="text-acid hover:underline">Axion AI</Link> and say
+            "this is the system, built for you."
+          </p>
         </motion.div>
 
         <motion.aside
@@ -96,6 +103,7 @@ function AboutPage() {
             {[
               ["Name", "Mohitpreet Singh"],
               ["Role", "Designer / Developer"],
+              ["Services", "SEO · Automation · Web"],
               ["Stack", "TS · React · Node"],
               ["Tools", "Figma · Vite · Vim"],
               ["Status", "Open to work"],

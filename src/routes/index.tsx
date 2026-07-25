@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { PageTransition } from "@/components/PageTransition";
+import { Search, Workflow, Palette } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -75,7 +76,56 @@ function Index() {
             <span className="heading text-sm">Summon Me</span>
           </Link>
         </motion.div>
+
+        <motion.p variants={rise} className="mono mt-4 text-xs uppercase tracking-widest text-bone/50">
+          (Translation: <a href="mailto:mohitpreets67@gmail.com" className="text-acid hover:underline">just email me</a> if you'd rather skip the theatrics.)
+        </motion.p>
       </motion.section>
+
+      {/* SERVICES */}
+      <section className="mt-32">
+        <div className="border-b-2 border-bone/30 pb-4">
+          <p className="mono text-xs uppercase tracking-[0.3em] text-blood">
+            ※ Currently Taking On
+          </p>
+          <h2 className="display mt-2 text-5xl text-bone md:text-7xl">
+            Work With <span className="text-acid">Me</span>
+          </h2>
+          <p className="mono mt-4 max-w-2xl text-sm leading-relaxed text-bone/70">
+            SEO audits and AI automation builds for small businesses — plus the
+            occasional full site design. If your site's invisible on Google or
+            your lead follow-up is still spreadsheets and copy-paste, that's
+            exactly what I fix.
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {services.map((s, i) => (
+            <motion.div
+              key={s.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="brutal-border bg-ink p-6"
+            >
+              <s.icon className="h-5 w-5 text-acid" />
+              <h3 className="display mt-4 text-2xl text-bone">{s.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-bone/70">{s.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="mt-10">
+          <Link
+            to="/contact"
+            className="brutal-shadow group inline-flex items-center gap-3 bg-acid px-6 py-4 text-void transition-transform hover:-translate-x-1 hover:-translate-y-1"
+          >
+            <span className="heading text-sm">Tell Me About Your Business</span>
+            <span className="display text-xl">→</span>
+          </Link>
+        </div>
+      </section>
 
       {/* SELECTED WORK PREVIEW */}
       <section className="mt-32">
@@ -153,6 +203,24 @@ function PreviewContent({ p, i }: { p: typeof previews[number]; i: number }) {
     </>
   );
 }
+
+const services = [
+  {
+    icon: Search,
+    title: "SEO Audits",
+    desc: "A clear, prioritized breakdown of what's holding your site back in search — and exactly what to fix first.",
+  },
+  {
+    icon: Workflow,
+    title: "AI Automation",
+    desc: "Lead capture, enrichment, and outreach systems that run without you lifting a finger. Axion AI below is the proof.",
+  },
+  {
+    icon: Palette,
+    title: "Web Design & Dev",
+    desc: "Fast, sharp, conversion-focused sites and product interfaces — built from scratch or fixed up.",
+  },
+];
 
 const previews = [
   {
