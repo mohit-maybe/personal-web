@@ -224,6 +224,15 @@ const services = [
 
 const previews = [
   {
+    title: "KisanSaathi",
+    kind: "AI · AgriTech",
+    year: "2026",
+    blurb: "An AI crop doctor and market advisor for Punjabi farmers — photo-based disease diagnosis, a farming chatbot, and live weather and mandi prices in Punjabi, Hindi, or English.",
+    tags: ["AI Vision", "AgriTech", "i18n"],
+    href: "https://kisan-mitra-xi.vercel.app",
+    internal: "/projects/kisan-saathi",
+  },
+  {
     title: "Student OS",
     kind: "SaaS · Software",
     year: "2025",

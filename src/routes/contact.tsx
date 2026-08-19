@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { PageTransition } from "@/components/PageTransition";
 import { toast } from "sonner";
+import { sendContactEmail } from "@/lib/contact-actions";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -31,13 +32,8 @@ function ContactPage() {
     };
 
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      const result = await res.json();
-      if (res.ok) {
+      const result = await sendContactEmail({ data });
+      if (result.success) {
         setSent(true);
         toast.success("Signal transmitted successfully. Check your email.");
       } else {

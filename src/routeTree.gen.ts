@@ -15,6 +15,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProjectsYatraNotesRouteImport } from './routes/projects.yatra-notes'
 import { Route as ProjectsProductEvaluationHarnessRouteImport } from './routes/projects.product-evaluation-harness'
+import { Route as ProjectsKisanSaathiRouteImport } from './routes/projects.kisan-saathi'
 import { Route as ProjectsAxionAiRouteImport } from './routes/projects.axion-ai'
 
 const WorkRoute = WorkRouteImport.update({
@@ -48,6 +49,11 @@ const ProjectsProductEvaluationHarnessRoute =
     path: '/projects/product-evaluation-harness',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ProjectsKisanSaathiRoute = ProjectsKisanSaathiRouteImport.update({
+  id: '/projects/kisan-saathi',
+  path: '/projects/kisan-saathi',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProjectsAxionAiRoute = ProjectsAxionAiRouteImport.update({
   id: '/projects/axion-ai',
   path: '/projects/axion-ai',
@@ -60,6 +66,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/work': typeof WorkRoute
   '/projects/axion-ai': typeof ProjectsAxionAiRoute
+  '/projects/kisan-saathi': typeof ProjectsKisanSaathiRoute
   '/projects/product-evaluation-harness': typeof ProjectsProductEvaluationHarnessRoute
   '/projects/yatra-notes': typeof ProjectsYatraNotesRoute
 }
@@ -69,6 +76,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/work': typeof WorkRoute
   '/projects/axion-ai': typeof ProjectsAxionAiRoute
+  '/projects/kisan-saathi': typeof ProjectsKisanSaathiRoute
   '/projects/product-evaluation-harness': typeof ProjectsProductEvaluationHarnessRoute
   '/projects/yatra-notes': typeof ProjectsYatraNotesRoute
 }
@@ -79,6 +87,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/work': typeof WorkRoute
   '/projects/axion-ai': typeof ProjectsAxionAiRoute
+  '/projects/kisan-saathi': typeof ProjectsKisanSaathiRoute
   '/projects/product-evaluation-harness': typeof ProjectsProductEvaluationHarnessRoute
   '/projects/yatra-notes': typeof ProjectsYatraNotesRoute
 }
@@ -90,6 +99,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/work'
     | '/projects/axion-ai'
+    | '/projects/kisan-saathi'
     | '/projects/product-evaluation-harness'
     | '/projects/yatra-notes'
   fileRoutesByTo: FileRoutesByTo
@@ -99,6 +109,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/work'
     | '/projects/axion-ai'
+    | '/projects/kisan-saathi'
     | '/projects/product-evaluation-harness'
     | '/projects/yatra-notes'
   id:
@@ -108,6 +119,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/work'
     | '/projects/axion-ai'
+    | '/projects/kisan-saathi'
     | '/projects/product-evaluation-harness'
     | '/projects/yatra-notes'
   fileRoutesById: FileRoutesById
@@ -118,6 +130,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   WorkRoute: typeof WorkRoute
   ProjectsAxionAiRoute: typeof ProjectsAxionAiRoute
+  ProjectsKisanSaathiRoute: typeof ProjectsKisanSaathiRoute
   ProjectsProductEvaluationHarnessRoute: typeof ProjectsProductEvaluationHarnessRoute
   ProjectsYatraNotesRoute: typeof ProjectsYatraNotesRoute
 }
@@ -166,6 +179,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsProductEvaluationHarnessRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/kisan-saathi': {
+      id: '/projects/kisan-saathi'
+      path: '/projects/kisan-saathi'
+      fullPath: '/projects/kisan-saathi'
+      preLoaderRoute: typeof ProjectsKisanSaathiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects/axion-ai': {
       id: '/projects/axion-ai'
       path: '/projects/axion-ai'
@@ -182,6 +202,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   WorkRoute: WorkRoute,
   ProjectsAxionAiRoute: ProjectsAxionAiRoute,
+  ProjectsKisanSaathiRoute: ProjectsKisanSaathiRoute,
   ProjectsProductEvaluationHarnessRoute: ProjectsProductEvaluationHarnessRoute,
   ProjectsYatraNotesRoute: ProjectsYatraNotesRoute,
 }
