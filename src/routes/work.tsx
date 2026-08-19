@@ -159,7 +159,7 @@ export function WorkPage() {
         ))}
 
         <li className="grid grid-cols-[auto_1fr_auto] items-baseline gap-6 border-b border-dashed border-bone/20 py-12 md:gap-12">
-          <span className="display text-3xl text-bone/30 md:text-5xl">05</span>
+          <span className="display text-3xl text-bone/30 md:text-5xl">06</span>
           <div>
             <h2 className="display text-4xl text-bone/40 md:text-7xl">[ Forthcoming ]</h2>
             <p className="mt-2 max-w-xl text-sm text-bone/50">
