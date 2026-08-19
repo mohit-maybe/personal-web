@@ -69,6 +69,18 @@ const works: Work[] = [
     repo: "https://github.com/mohit-maybe/product-evaluation-harness",
     internal: "/projects/product-evaluation-harness",
   },
+  {
+    n: "05",
+    title: "KisanSaathi",
+    kind: "AI Full-stack · AgriTech",
+    year: "2026",
+    blurb:
+      "An AI crop doctor and market advisor built for Punjabi farmers — photo-based disease diagnosis, a farming chatbot, and live weather and mandi prices, all delivered in Punjabi, Hindi, or English on a mobile-first, high-contrast interface.",
+    tags: ["AI Vision", "TanStack Start", "i18n", "AgriTech"],
+    href: "https://kisan-mitra-xi.vercel.app",
+    repo: "https://github.com/mohit-maybe/kisan-mitra",
+    internal: "/projects/kisan-saathi",
+  },
 ];
 
 export function WorkPage() {
@@ -147,7 +159,7 @@ export function WorkPage() {
         ))}
 
         <li className="grid grid-cols-[auto_1fr_auto] items-baseline gap-6 border-b border-dashed border-bone/20 py-12 md:gap-12">
-          <span className="display text-3xl text-bone/30 md:text-5xl">05</span>
+          <span className="display text-3xl text-bone/30 md:text-5xl">06</span>
           <div>
             <h2 className="display text-4xl text-bone/40 md:text-7xl">[ Forthcoming ]</h2>
             <p className="mt-2 max-w-xl text-sm text-bone/50">
