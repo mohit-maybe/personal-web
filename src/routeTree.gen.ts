@@ -13,6 +13,9 @@ import { Route as WorkRouteImport } from './routes/work'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProjectsYatraNotesRouteImport } from './routes/projects.yatra-notes'
+import { Route as ProjectsProductEvaluationHarnessRouteImport } from './routes/projects.product-evaluation-harness'
+import { Route as ProjectsAxionAiRouteImport } from './routes/projects.axion-ai'
 
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
@@ -34,18 +37,40 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjectsYatraNotesRoute = ProjectsYatraNotesRouteImport.update({
+  id: '/projects/yatra-notes',
+  path: '/projects/yatra-notes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsProductEvaluationHarnessRoute =
+  ProjectsProductEvaluationHarnessRouteImport.update({
+    id: '/projects/product-evaluation-harness',
+    path: '/projects/product-evaluation-harness',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProjectsAxionAiRoute = ProjectsAxionAiRouteImport.update({
+  id: '/projects/axion-ai',
+  path: '/projects/axion-ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/work': typeof WorkRoute
+  '/projects/axion-ai': typeof ProjectsAxionAiRoute
+  '/projects/product-evaluation-harness': typeof ProjectsProductEvaluationHarnessRoute
+  '/projects/yatra-notes': typeof ProjectsYatraNotesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/work': typeof WorkRoute
+  '/projects/axion-ai': typeof ProjectsAxionAiRoute
+  '/projects/product-evaluation-harness': typeof ProjectsProductEvaluationHarnessRoute
+  '/projects/yatra-notes': typeof ProjectsYatraNotesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +78,38 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/work': typeof WorkRoute
+  '/projects/axion-ai': typeof ProjectsAxionAiRoute
+  '/projects/product-evaluation-harness': typeof ProjectsProductEvaluationHarnessRoute
+  '/projects/yatra-notes': typeof ProjectsYatraNotesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/work'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/work'
+    | '/projects/axion-ai'
+    | '/projects/product-evaluation-harness'
+    | '/projects/yatra-notes'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/work'
-  id: '__root__' | '/' | '/about' | '/contact' | '/work'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/work'
+    | '/projects/axion-ai'
+    | '/projects/product-evaluation-harness'
+    | '/projects/yatra-notes'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/work'
+    | '/projects/axion-ai'
+    | '/projects/product-evaluation-harness'
+    | '/projects/yatra-notes'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +117,9 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   WorkRoute: typeof WorkRoute
+  ProjectsAxionAiRoute: typeof ProjectsAxionAiRoute
+  ProjectsProductEvaluationHarnessRoute: typeof ProjectsProductEvaluationHarnessRoute
+  ProjectsYatraNotesRoute: typeof ProjectsYatraNotesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -99,6 +152,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/yatra-notes': {
+      id: '/projects/yatra-notes'
+      path: '/projects/yatra-notes'
+      fullPath: '/projects/yatra-notes'
+      preLoaderRoute: typeof ProjectsYatraNotesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/product-evaluation-harness': {
+      id: '/projects/product-evaluation-harness'
+      path: '/projects/product-evaluation-harness'
+      fullPath: '/projects/product-evaluation-harness'
+      preLoaderRoute: typeof ProjectsProductEvaluationHarnessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/axion-ai': {
+      id: '/projects/axion-ai'
+      path: '/projects/axion-ai'
+      fullPath: '/projects/axion-ai'
+      preLoaderRoute: typeof ProjectsAxionAiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -107,6 +181,9 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   WorkRoute: WorkRoute,
+  ProjectsAxionAiRoute: ProjectsAxionAiRoute,
+  ProjectsProductEvaluationHarnessRoute: ProjectsProductEvaluationHarnessRoute,
+  ProjectsYatraNotesRoute: ProjectsYatraNotesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
